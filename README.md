@@ -2,7 +2,7 @@ TelescopeControl
 ================
 
 Telescope Control is an Android 5 application to control the fan, heater, temperature sensors and 
-digital setting circles.
+digital setting circles of a Dobsonian telescope.
 
 You need :
   - An android 5 smartphone or tablet. 
