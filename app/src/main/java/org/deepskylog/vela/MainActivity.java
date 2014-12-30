@@ -1,19 +1,18 @@
-package org.deepskylog.telescopecontrol;
+package org.deepskylog.vela;
 
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
-import android.content.Context;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
+
+import org.deepskylog.vela.telescopecontrol.R;
 
 
 public class MainActivity extends Activity implements ActionBar.OnNavigationListener {
@@ -82,6 +81,9 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            
             return true;
         }
 

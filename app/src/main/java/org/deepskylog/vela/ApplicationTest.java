@@ -1,4 +1,4 @@
-package org.deepskylog.telescopecontrol;
+package org.deepskylog.vela;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
