@@ -1,7 +1,7 @@
-TelescopeControl
-================
+VelaTelescopeControl
+====================
 
-Telescope Control is an Android 5 application to control the fan, heater, temperature sensors,
+Vela Telescope Control System  is an Android 5 application to control the fan, heater, temperature sensors,
 digital setting circles and motor drive of a Dobsonian telescope. 
 
 You need :
@@ -15,5 +15,7 @@ You need :
   - Heaters
   - Motors for the azimuth and altitude axis.
   
-The Android application will interface with DeepskyLog (http://www.deepskylog.org) to get a list with objects and to import the Observing Lists.
-Telescope Control is developed to work with my telescope and my settings. I hope to find some testers and developers who want to test the software on other setups.
+The Android application will interface with DeepskyLog (http://www.deepskylog.org) to get a list with objects
+and to import the Observing Lists.
+Telescope Control is developed to work with my telescope and my settings. I hope to find some testers and developers
+who want to test the software on other setups.
