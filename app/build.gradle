@@ -3,9 +3,8 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 21
     buildToolsVersion "21.0.1"
-
     defaultConfig {
-        applicationId "org.deepskylog.telescopecontrol"
+        applicationId 'org.deepskylog.vela'
         minSdkVersion 21
         targetSdkVersion 21
         versionCode 1
@@ -16,6 +15,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+    productFlavors {
     }
 }
 
