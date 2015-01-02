@@ -7,6 +7,18 @@
     tools:context="org.deepskylog.vela.SettingsActivity">
 
     <TextView android:text="@string/settings" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textView" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:switchMinWidth="150dp"
+        android:text="@string/fan"
+        android:id="@+id/fan"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
