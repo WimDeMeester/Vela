@@ -2,9 +2,8 @@
 <resources>
 
     <string name="app_name">Vela TCS</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">Status</string>
+    <string name="title_section2">Setting circles</string>
     <string name="hello_world">Hello world!</string>
     <string name="settings">Select your components</string>
     <string name="fan">Fan</string>
