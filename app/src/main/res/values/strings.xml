@@ -4,7 +4,7 @@
     <string name="app_name">Vela TCS</string>
     <string name="title_section1">Status</string>
     <string name="title_section2">Setting circles</string>
-    <string name="hello_world">Not yet available in this version of Vela TCS.</string>
+    <string name="not_available">Not yet available in this version of Vela TCS.</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_settings">Vela Settings</string>
     <string name="hello_blank_fragment">Status</string>
