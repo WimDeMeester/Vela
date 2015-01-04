@@ -5,10 +5,8 @@
     <string name="title_section1">Status</string>
     <string name="title_section2">Setting circles</string>
     <string name="hello_world">Not yet available in this version of Vela TCS.</string>
-    <string name="settings">Select your components</string>
-    <string name="fan">Fan</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_settings">Vela Settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Status</string>
 
 </resources>

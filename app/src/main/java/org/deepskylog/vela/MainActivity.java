@@ -93,9 +93,13 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
     public boolean onNavigationItemSelected(int position, long id) {
         // When the given dropdown item is selected, show its contents in the
         // container view.
-        getFragmentManager().beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        if (position == 0) {
+            getFragmentManager().beginTransaction().replace(R.id.container, StatusFragment.newInstance()).commit();
+        } else {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                    .commit();
+        }
         return true;
     }
 
@@ -127,8 +131,7 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
+            return inflater.inflate(R.layout.fragment_main, container, false);
         }
     }
 
