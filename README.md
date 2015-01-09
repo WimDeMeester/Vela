@@ -23,3 +23,7 @@ and to import the Observing Lists. When connected to the internet, it will be po
 
 Telescope Control is developed to work with my telescope and my settings. I hope to find some testers and developers
 who want to test the software on other setups.
+
+Some things to think about for future versions : 
+  - Download location and get drive directions using google maps.
+  - ...
