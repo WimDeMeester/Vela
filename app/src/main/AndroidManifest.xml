@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.deepskylog.vela.telescopecontrol" >
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -18,7 +23,20 @@
         </activity>
         <activity
             android:name="org.deepskylog.vela.SettingsActivity"
+            android:parentActivityName="org.deepskylog.vela.MainActivity"
             android:label="@string/title_activity_settings" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.deepskylog.vela.MainActivity" />
+        </activity>
+        <activity
+            android:name="org.deepskylog.vela.DeepskyLogLoginActivity"
+            android:label="@string/title_activity_deepsky_log_login"
+            android:parentActivityName="org.deepskylog.vela.SettingsActivity"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.deepskylog.vela.SettingsActivity" />
         </activity>
     </application>
 
