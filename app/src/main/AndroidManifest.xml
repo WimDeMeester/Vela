@@ -22,14 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.deepskylog.vela.SettingsActivity"
-            android:parentActivityName="org.deepskylog.vela.MainActivity"
-            android:label="@string/title_activity_settings" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.deepskylog.vela.MainActivity" />
-        </activity>
-        <activity
             android:name="org.deepskylog.vela.DeepskyLogLoginActivity"
             android:label="@string/title_activity_deepsky_log_login"
             android:parentActivityName="org.deepskylog.vela.SettingsActivity"
@@ -37,6 +29,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.deepskylog.vela.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="org.deepskylog.vela.SettingsActivity"
+            android:label="@string/title_activity_settings_activity"
+            android:parentActivityName="org.deepskylog.vela.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.deepskylog.vela.MainActivity" />
         </activity>
     </application>
 
