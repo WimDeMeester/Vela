@@ -7,8 +7,8 @@
     <string name="pref_header_general">General</string>
 
     <string name="pref_title_fan">Primary mirror Fan</string>
-    <string name="pref_description_fan">Select this if the fan for the primary mirror is connected to the Vela TCS.
+    <string name="pref_description_fan">Select this if the fan for the primary mirror is connected.
     </string>
 
-    <string name="pref_title_deepskylog_settings">DeepskyLog log in</string>
+    <string name="pref_title_deepskylog_settings">DeepskyLog connection</string>
 </resources>
