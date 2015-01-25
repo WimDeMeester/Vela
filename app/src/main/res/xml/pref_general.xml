@@ -6,10 +6,4 @@
         android:summary="@string/pref_description_fan"
         android:defaultValue="false" />
 
-    <Preference android:title="@string/pref_title_deepskylog_settings">
-        <intent
-            android:targetPackage="org.deepskylog.vela"
-            android:targetClass="org.deepskylog.vela.DeepskyLogLoginActivity" />
-    </Preference>
-
 </PreferenceScreen>
