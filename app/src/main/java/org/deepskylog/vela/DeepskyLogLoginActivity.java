@@ -65,8 +65,8 @@ public class DeepskyLogLoginActivity extends Activity implements LoaderCallbacks
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
+        Button mSignInButton = (Button) findViewById(R.id.deepskylog_sign_in_button);
+        mSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
@@ -75,10 +75,6 @@ public class DeepskyLogLoginActivity extends Activity implements LoaderCallbacks
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
-    }
-
-    private void populateAutoComplete() {
-        getLoaderManager().initLoader(0, null, this);
     }
 
     /**
@@ -107,7 +103,7 @@ public class DeepskyLogLoginActivity extends Activity implements LoaderCallbacks
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mDeepskyLogIdView.getText().toString();
+        String id = mDeepskyLogIdView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -115,19 +111,15 @@ public class DeepskyLogLoginActivity extends Activity implements LoaderCallbacks
 
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (TextUtils.isEmpty(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
         }
 
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
+        // Check for a valid id.
+        if (TextUtils.isEmpty(id)) {
             mDeepskyLogIdView.setError(getString(R.string.error_field_required));
-            focusView = mDeepskyLogIdView;
-            cancel = true;
-        } else if (!isEmailValid(email)) {
-            mDeepskyLogIdView.setError(getString(R.string.error_invalid_email));
             focusView = mDeepskyLogIdView;
             cancel = true;
         }
@@ -140,19 +132,9 @@ public class DeepskyLogLoginActivity extends Activity implements LoaderCallbacks
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
+            mAuthTask = new UserLoginTask(id, password);
             mAuthTask.execute((Void) null);
         }
-    }
-
-    private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
-    }
-
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
     }
 
     /**
