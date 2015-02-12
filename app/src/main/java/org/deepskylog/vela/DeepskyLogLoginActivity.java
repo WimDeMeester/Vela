@@ -169,12 +169,12 @@ public class DeepskyLogLoginActivity extends Activity {
      * the user.
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
-        private final String mEmail;
+        // TODO: Do implementation
+        private final String mId;
         private final String mPassword;
 
-        UserLoginTask(String email, String password) {
-            mEmail = email;
+        UserLoginTask(String id, String password) {
+            mId = id;
             mPassword = password;
         }
 
@@ -192,7 +192,7 @@ public class DeepskyLogLoginActivity extends Activity {
 /*
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
+                if (pieces[0].equals(mId)) {
                     // Account exists, return true if the password matches.
                     return pieces[1].equals(mPassword);
                 }
