@@ -169,7 +169,7 @@ public class DeepskyLogLoginActivity extends Activity {
      * the user.
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-        // TODO: Do implementation
+        // TODO: Do implementation: see DeepskyLogMobile/src/org/deepskylog/Observers.java
         private final String mId;
         private final String mPassword;
 
