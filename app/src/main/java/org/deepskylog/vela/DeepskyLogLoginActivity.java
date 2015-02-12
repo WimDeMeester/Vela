@@ -10,7 +10,6 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -19,7 +18,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -36,19 +34,12 @@ import java.util.List;
 public class DeepskyLogLoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
-    /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
 
     // UI references.
-    private AutoCompleteTextView mEmailView;
+    private EditText mDeepskyLogIdView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
@@ -60,8 +51,7 @@ public class DeepskyLogLoginActivity extends Activity implements LoaderCallbacks
         setupActionBar();
 
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.DeepskyLogId);
-        populateAutoComplete();
+        mDeepskyLogIdView = (EditText) findViewById(R.id.DeepskyLogId);
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -113,11 +103,11 @@ public class DeepskyLogLoginActivity extends Activity implements LoaderCallbacks
         }
 
         // Reset errors.
-        mEmailView.setError(null);
+        mDeepskyLogIdView.setError(null);
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
+        String email = mDeepskyLogIdView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -133,12 +123,12 @@ public class DeepskyLogLoginActivity extends Activity implements LoaderCallbacks
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
+            mDeepskyLogIdView.setError(getString(R.string.error_field_required));
+            focusView = mDeepskyLogIdView;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
+            mDeepskyLogIdView.setError(getString(R.string.error_invalid_email));
+            focusView = mDeepskyLogIdView;
             cancel = true;
         }
 
@@ -269,6 +259,7 @@ public class DeepskyLogLoginActivity extends Activity implements LoaderCallbacks
                 return false;
             }
 
+/*
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mEmail)) {
@@ -276,6 +267,7 @@ public class DeepskyLogLoginActivity extends Activity implements LoaderCallbacks
                     return pieces[1].equals(mPassword);
                 }
             }
+*/
 
             // TODO: register the new account here.
             return true;
