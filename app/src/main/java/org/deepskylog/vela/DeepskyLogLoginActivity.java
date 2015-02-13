@@ -64,6 +64,19 @@ public class DeepskyLogLoginActivity extends Activity {
             }
         });
 
+        // If we don't have network connection, disable the settings and add text that we need network access.
+        if (!Utils.isConnectedToTheInternet(DeepskyLogLoginActivity.this)) {
+            mSignInButton.setEnabled(false);
+            mSignInButton.setText(R.string.no_network);
+            mDeepskyLogIdView.setEnabled(false);
+            mPasswordView.setEnabled(false);
+        } else {
+            mSignInButton.setEnabled(true);
+            mSignInButton.setText(R.string.action_sign_in);
+            mDeepskyLogIdView.setEnabled(true);
+            mPasswordView.setEnabled(true);
+        }
+
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
@@ -180,14 +193,20 @@ public class DeepskyLogLoginActivity extends Activity {
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
+            // attempt authentication against a network service.
 
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
+//            try {
+            //DslCommand.getCommandAndInvokeClassMethod("checkUser", "&userName="+mId+"&password="+mPassword, "org.deepskylog.Observers","onLoginResult");
+
+            // else MainActivity.loggedPerson="";
+            // MainActivity.preferenceEditor.putString("loggedPerson", MainActivity.loggedPerson).commit();
+            // MainActivity.mainActivity.setActionBar();
+
+/*
             } catch (InterruptedException e) {
                 return false;
             }
+*/
 
 /*
             for (String credential : DUMMY_CREDENTIALS) {
