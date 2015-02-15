@@ -65,6 +65,7 @@ public class DeepskyLogLoginActivity extends Activity {
         });
 
         // If we don't have network connection, disable the settings and add text that we need network access.
+        // Easy to test: Enable airplane mode.
         if (!Utils.isConnectedToTheInternet(DeepskyLogLoginActivity.this)) {
             mSignInButton.setEnabled(false);
             mSignInButton.setText(R.string.no_network);
