@@ -197,7 +197,7 @@ public class DeepskyLogLoginActivity extends Activity {
             // attempt authentication against a network service.
 
 //            try {
-            //DslCommand.getCommandAndInvokeClassMethod("checkUser", "&userName="+mId+"&password="+mPassword, "org.deepskylog.Observers","onLoginResult");
+            DslCommand.getCommandAndInvokeClassMethod("checkUser", "&userName=" + mId + "&password=" + mPassword, "org.deepskylog.Observers", "onLoginResult");
 
             // else MainActivity.loggedPerson="";
             // MainActivity.preferenceEditor.putString("loggedPerson", MainActivity.loggedPerson).commit();
