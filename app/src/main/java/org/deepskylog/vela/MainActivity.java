@@ -22,11 +22,14 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
      * current dropdown position.
      */
     private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
+    public static MainActivity mainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mainActivity = this;
 
         // Set up the action bar to show a dropdown list.
         final ActionBar actionBar = getActionBar();

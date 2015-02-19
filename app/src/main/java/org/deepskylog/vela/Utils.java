@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -13,6 +14,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Utils {
+
+    private static final String TAG = "Vela";
 
     /**
      * Returns true if there is a connection with the internet
@@ -78,6 +81,7 @@ public class Utils {
             Class.forName(getTagContent(result, "onResultClass")).getMethod(getTagContent(result, "onResultMethod"), String.class).invoke(null, result);
         } catch (Exception e) {
             Toast.makeText(MainActivity.mainActivity, "Utils.invokeClassMethodWithResult: Exception 2, " + result + " " + e.getMessage().toString(), Toast.LENGTH_LONG).show();
+            Log.e(TAG, "Utils.invokeClassMethodWithResult: Exception 2, " + result + " " + e.getMessage().toString());
         }
     }
 
