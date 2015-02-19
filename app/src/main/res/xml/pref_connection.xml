@@ -2,11 +2,11 @@
 
     <Preference android:title="@string/pref_title_deepskylog_settings">
         <intent
-            android:targetPackage="org.deepskylog.vela"
-            android:targetClass="org.deepskylog.vela.DeepskyLogLoginActivity" />
+            android:targetClass="org.deepskylog.vela.DeepskyLogLoginActivity"
+            android:targetPackage="org.deepskylog.vela" />
     </Preference>
 
-<!--
+    <!--
     <Preference android:title="@string/pref_title_bluetooth_settings">
         <intent
             android:targetPackage="org.deepskylog.vela"
