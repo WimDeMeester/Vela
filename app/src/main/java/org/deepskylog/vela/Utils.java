@@ -15,7 +15,7 @@ import java.net.URL;
 
 public class Utils {
 
-    private static final String TAG = "Vela";
+    private static final String TAG = "Vela.Utils";
 
     /**
      * Returns true if there is a connection with the internet
@@ -83,6 +83,8 @@ public class Utils {
             Toast.makeText(MainActivity.mainActivity, "Utils.invokeClassMethodWithResult: Exception 2, " + result + " " + e.getMessage().toString(), Toast.LENGTH_LONG).show();
             Log.e(TAG, "Utils.invokeClassMethodWithResult: Exception 2, " + result + " " + e.getMessage().toString());
         }
+
+        // TODO: We need the Observers class from DeepskyLogMobile. Without this class, we always have an Exception 2.
     }
 
     public static String getTagContent(String result, String tag) throws Exception {

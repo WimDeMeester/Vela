@@ -4,10 +4,13 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,48 +41,74 @@ public class DeepskyLogLoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_deepskylog_login);
-        setupActionBar();
 
-        // Set up the login form.
-        mDeepskyLogIdView = (EditText) findViewById(R.id.DeepskyLogId);
+        // We check if we are already connected. If this is the case, we show the username and add a 'Log out' button.
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(MainActivity.mainActivity);
+        Log.i("Vela.USER", settings.getString("loggedUser", ""));
+        if (settings.getString("loggedUser", "") != "") {
+            setContentView((R.layout.activity_deepskylog_logout));
+            setupActionBar();
 
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.DeepskyLogId || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
-                    return true;
+            ((TextView) findViewById(R.id.LoggedInAs)).setText(
+                    new StringBuilder().append(
+                            MainActivity.mainActivity.getString(R.string.logged_in)).append(" ").append(settings.getString("loggedUser", "")));
+
+            Button mSignOutButton = (Button) findViewById(R.id.deepskylog_logout_button);
+
+            mSignOutButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(MainActivity.mainActivity);
+                    settings.edit().remove("loggedUser").commit();
+                    finish();
                 }
-                return false;
-            }
-        });
+            });
 
-        Button mSignInButton = (Button) findViewById(R.id.deepskylog_sign_in_button);
-        mSignInButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptLogin();
-            }
-        });
-
-        // If we don't have network connection, disable the settings and add text that we need network access.
-        // Easy to test: Enable airplane mode.
-        if (!Utils.isConnectedToTheInternet(DeepskyLogLoginActivity.this)) {
-            mSignInButton.setEnabled(false);
-            mSignInButton.setText(R.string.no_network);
-            mDeepskyLogIdView.setEnabled(false);
-            mPasswordView.setEnabled(false);
         } else {
-            mSignInButton.setEnabled(true);
-            mSignInButton.setText(R.string.action_sign_in);
-            mDeepskyLogIdView.setEnabled(true);
-            mPasswordView.setEnabled(true);
-        }
+            // We are not connected, so we show the log in layout.
+            setContentView(R.layout.activity_deepskylog_login);
+            setupActionBar();
 
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
+            // Set up the login form.
+            mDeepskyLogIdView = (EditText) findViewById(R.id.DeepskyLogId);
+
+            mPasswordView = (EditText) findViewById(R.id.password);
+            mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                    if (id == R.id.DeepskyLogId || id == EditorInfo.IME_NULL) {
+                        attemptLogin();
+                        return true;
+                    }
+                    return false;
+                }
+            });
+
+            Button mSignInButton = (Button) findViewById(R.id.deepskylog_sign_in_button);
+            mSignInButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    attemptLogin();
+                }
+            });
+
+            // If we don't have network connection, disable the settings and add text that we need network access.
+            // Easy to test: Enable airplane mode.
+            if (!Utils.isConnectedToTheInternet(DeepskyLogLoginActivity.this)) {
+                mSignInButton.setEnabled(false);
+                mSignInButton.setText(R.string.no_network);
+                mDeepskyLogIdView.setEnabled(false);
+                mPasswordView.setEnabled(false);
+            } else {
+                mSignInButton.setEnabled(true);
+                mSignInButton.setText(R.string.action_sign_in);
+                mDeepskyLogIdView.setEnabled(true);
+                mPasswordView.setEnabled(true);
+            }
+
+            mLoginFormView = findViewById(R.id.login_form);
+            mProgressView = findViewById(R.id.login_progress);
+        }
     }
 
     /**
@@ -183,7 +212,6 @@ public class DeepskyLogLoginActivity extends Activity {
      * the user.
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-        // TODO: Do implementation: see DeepskyLogMobile/src/org/deepskylog/Observers.java
         private final String mId;
         private final String mPassword;
 
@@ -195,31 +223,8 @@ public class DeepskyLogLoginActivity extends Activity {
         @Override
         protected Boolean doInBackground(Void... params) {
             // attempt authentication against a network service.
+            DslCommand.getCommandAndInvokeClassMethod("checkUser", "&userName=" + mId + "&password=" + mPassword, "org.deepskylog.vela.Observers", "onLoginResult");
 
-//            try {
-            DslCommand.getCommandAndInvokeClassMethod("checkUser", "&userName=" + mId + "&password=" + mPassword, "org.deepskylog.Observers", "onLoginResult");
-
-            // else MainActivity.loggedPerson="";
-            // MainActivity.preferenceEditor.putString("loggedPerson", MainActivity.loggedPerson).commit();
-            // MainActivity.mainActivity.setActionBar();
-
-/*
-            } catch (InterruptedException e) {
-                return false;
-            }
-*/
-
-/*
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mId)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-*/
-
-            // TODO: register the new account here.
             return true;
         }
 
