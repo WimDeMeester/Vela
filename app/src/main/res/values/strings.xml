@@ -9,6 +9,7 @@
     <string name="title_activity_settings">Vela Settings</string>
     <string name="hello_blank_fragment">Status</string>
     <string name="no_network">No network</string>
-    <string name="cannot_log_in">Cannot log in...</string>
+    <string name="cannot_log_in">Cannot log in…</string>
+    <string name="logged_in">Successfully logged in as </string>
 
 </resources>
