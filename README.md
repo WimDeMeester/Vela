@@ -1,6 +1,8 @@
 Vela Telescope Control System
 =============================
 
+[![Join the chat at https://gitter.im/DeepskyLog/Vela](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/DeepskyLog/Vela?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Vela is an Android application to control the fan, heater, temperature sensors,
 digital setting circles, and motor drive of a Dobsonian telescope. 
 
