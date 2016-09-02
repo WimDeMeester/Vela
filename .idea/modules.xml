@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Vela.iml" filepath="$PROJECT_DIR$/Vela.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VelaTelescopeControlSystem.iml" filepath="$PROJECT_DIR$/VelaTelescopeControlSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
-
