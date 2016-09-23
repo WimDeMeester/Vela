@@ -6,4 +6,8 @@
 
     <string name="action_settings">Settings</string>
     <string name="wizard">Startup Wizard</string>
+
+    <string name="startupWizard1_1">Before you can use DeepskyLog Vela TCS, you will need to set some things up.\n
+    \nYou will setup:\n• the connection with the Vela Arduino board\n• your hardware components\n• the connection with DeepskyLog\n</string>
+    <string name="startWizard">Start Wizard</string>
 </resources>
