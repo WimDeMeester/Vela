@@ -29,4 +29,7 @@
     <string name="createDeepskyLogAccount">Maak nieuw account aan</string>
     <string name="signin">Aanmelden</string>
     <string name="skip">Overslaan</string>
+    <string name="noBluetooth">Dit apparaat heeft geen bluetooth adapter. Een verbinding maken met de Vela hardware is onmogelijk. Deze app zal op dit apparaat maar beperkte mogelijkheden hebben.</string>
+    <string name="noBluetoothTitle">Geen Bluetooth adapter</string>
+    <string name="ok">Ok</string>
 </resources>

@@ -33,4 +33,7 @@
     <string name="signin">Sign in</string>
     <string name="createDeepskyLogAccount">Create new account</string>
     <string name="skip">Skip</string>
+    <string name="noBluetooth">This device does not have a bluetooth adapter. You will not be able to connect to the Vela hardware and will only have limited functionalities.</string>
+    <string name="noBluetoothTitle">No Bluetooth adapter</string>
+    <string name="ok">Ok</string>
 </resources>
