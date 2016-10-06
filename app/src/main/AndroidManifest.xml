@@ -32,5 +32,6 @@
         <activity android:name=".wizard.Hardware2" />
         <activity android:name=".wizard.DeepskyLogLogin"></activity>
     </application>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 
 </manifest>
