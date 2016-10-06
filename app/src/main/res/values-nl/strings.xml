@@ -32,4 +32,5 @@
     <string name="noBluetooth">Dit apparaat heeft geen bluetooth adapter. Een verbinding maken met de Vela hardware is onmogelijk. Deze app zal op dit apparaat maar beperkte mogelijkheden hebben.</string>
     <string name="noBluetoothTitle">Geen Bluetooth adapter</string>
     <string name="ok">Ok</string>
+    <string name="bluetoothEnabled">Bluetooth ingeschakeld</string>
 </resources>
