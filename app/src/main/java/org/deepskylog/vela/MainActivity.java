@@ -17,7 +17,7 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import org.deepskylog.vela.wizard.StartupWizard1;
+import org.deepskylog.vela.wizard.Introduction;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.wizard) {
             // Handle the startup wizard action
-            Intent intent = new Intent(this, StartupWizard1.class);
+            Intent intent = new Intent(this, Introduction.class);
             startActivity(intent);
         }
 

@@ -10,4 +10,27 @@
     <string name="startupWizard1_1">Before you can use DeepskyLog Vela TCS, you will need to set some things up.\n
     \nYou need to set up:\n• the connection with the Vela Arduino board\n• your hardware components\n• the connection with DeepskyLog\n</string>
     <string name="startWizard">Start Wizard</string>
+
+    <string name="bluetoothWizard">Vela connects to an Arduino using Bluetooth.\n\nMake sure to:\n• power on your Vela Arduino board\n• enable Bluetooth on your phone or tablet\n• make a connection with your Arduino</string>
+    <string name="enableBluetooth">Enable bluetooth</string>
+    <string name="connectArduino">Connect to Arduino</string>
+    <string name="selectHardware">Select the Vela hardware components installed on your telescope</string>
+    <string name="primaryMirror">Primary Mirror</string>
+    <string name="collimationMotors">Collimation motors</string>
+    <string name="fan">Fan</string>
+    <string name="temperatureSensor">Temperature Sensor</string>
+    <string name="secondaryMirror">Secondary Mirror</string>
+    <string name="heater">Heater</string>
+    <string name="temperatureSensorOutside">Air Temperature Sensor</string>
+    <string name="next">Next</string>
+    <string name="encodersMotors">Motors and encoders</string>
+    <string name="digitalSettingCircles">Encoders</string>
+    <string name="motors">Alt and Azimuth Motors</string>
+    <string name="deepskyLogIntro">Vela uses DeepskyLog to fetch the data of the deep-sky objects you want to observe, to generate and use observing lists, ...</string>
+    <string name="deepskyLogLogin">Please enter your DeepskyLog username and password.</string>
+    <string name="loginName">Login Name</string>
+    <string name="password">Password</string>
+    <string name="signin">Sign in</string>
+    <string name="createDeepskyLogAccount">Create new account</string>
+    <string name="skip">Skip</string>
 </resources>

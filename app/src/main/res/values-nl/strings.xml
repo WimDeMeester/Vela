@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vela</string>
+    <string name="action_settings">Instellingen</string>
+    <string name="bluetoothWizard">Vela maakt een verbinding met een Arduino via Bluetooth.\n\n• Zet je Vela Arduino bord aan\n• Schakel Bluetooth in op je telefoon of tablet\n• Maak een verbinding met je Arduino</string>
+    <string name="navigation_drawer_close">Sluit de navigatiebalk</string>
+    <string name="navigation_drawer_open">Open de navigatiebalk</string>
+    <string name="startWizard">Start de wizard</string>
+    <string name="wizard">Startup Wizard</string>
+    <string name="startupWizard1_1">Voordat je DeepskyLog Vela TCS kan gebruiken, moet je enkele zaken instellen.\n\n• Maak de verbinding met het Vela Arduino bord\n• Selecteer je hardware componenten\n• Maak de verbinding met DeepskyLog\n</string>
+    <string name="connectArduino">Verbind met Arduino</string>
+    <string name="enableBluetooth">Schakel Bluetooth in</string>
+    <string name="selectHardware">Selecteer de Vela hardware componenten die geïnstalleerd zijn op je telescoop</string>
+    <string name="collimationMotors">Collimatie motoren</string>
+    <string name="digitalSettingCircles">Encoders</string>
+    <string name="encodersMotors">Motoren en encoders</string>
+    <string name="fan">Ventilator</string>
+    <string name="heater">Verwarming</string>
+    <string name="motors">Altitude en azimuth motoren</string>
+    <string name="next">Volgende</string>
+    <string name="primaryMirror">Hoofdspiegel</string>
+    <string name="secondaryMirror">Vangspiegel</string>
+    <string name="temperatureSensor">Temperatuursensor</string>
+    <string name="temperatureSensorOutside">Lucht temperatuursensor</string>
+    <string name="deepskyLogIntro">Vela gebruikt DeepskyLog om de deep-sky objecten over te halen, om waarneemlijsten te maken en te gebruiken, ...</string>
+    <string name="deepskyLogLogin">Gelieve je DeepskyLog gebruikersnaam en wachtwoord in te voeren.</string>
+    <string name="loginName">Gebruikersnaam</string>
+    <string name="password">Wachtwoord</string>
+    <string name="createDeepskyLogAccount">Maak nieuw account aan</string>
+    <string name="signin">Aanmelden</string>
+    <string name="skip">Overslaan</string>
+</resources>
