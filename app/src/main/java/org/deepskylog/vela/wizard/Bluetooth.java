@@ -39,6 +39,11 @@ public class Bluetooth extends AppCompatActivity {
         if (_mBluetoothAdapter != null && _mBluetoothAdapter.isEnabled()) {
             // Change the button to show that bluetooth is enabled.
             showBluetoothEnabledButton();
+        } else if (_mBluetoothAdapter != null) {
+            Button mButton = (Button) this.getWindow().getDecorView().findViewById(R.id.connectArduino);
+            mButton.setActivated(false);
+            mButton.setEnabled(false);
+            mButton.setClickable(false);
         }
     }
 
@@ -68,6 +73,11 @@ public class Bluetooth extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 // Disable the 'Enable bluetooth button
                 showBluetoothEnabledButton();
+
+                Button mButton = (Button) this.getWindow().getDecorView().findViewById(R.id.connectArduino);
+                mButton.setActivated(true);
+                mButton.setEnabled(true);
+                mButton.setClickable(true);
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
