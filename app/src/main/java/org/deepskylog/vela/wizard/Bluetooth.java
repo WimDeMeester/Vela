@@ -15,55 +15,77 @@ import org.deepskylog.vela.util.Android;
 public class Bluetooth extends AppCompatActivity {
 
     BluetoothAdapter _mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    int REQUEST_ENABLE_BT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO: Check if bluetooth is enabled. If this is the case, change the button and make the button unselectable
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wizard_bluetooth);
 
-        // TODO: Why is the image not shown on the Nexus 5?
-        
+        if (_mBluetoothAdapter == null) {
+            // Device does not support Bluetooth
+            Android.showDialog(this, R.string.noBluetooth, R.string.noBluetoothTitle, R.string.ok);
+
+            // Disable the 'Turn on bluetooth' button
+            Button tButton = (Button) this.getWindow().getDecorView().findViewById(R.id.enableBluetoothButton);
+            tButton.setActivated(false);
+            tButton.setEnabled(false);
+            tButton.setClickable(false);
+
+            // Change the button to 'Next'
+            Button mButton = (Button) this.getWindow().getDecorView().findViewById(R.id.connectArduino);
+            mButton.setText(R.string.next);
+        }
         if (_mBluetoothAdapter != null && _mBluetoothAdapter.isEnabled()) {
             // Change the button to show that bluetooth is enabled.
-            Button mButton=(Button)this.getWindow().getDecorView().findViewById(R.id.enableBluetoothButton);
-            mButton.setText(R.string.bluetoothEnabled);
-
-            // Make the button unselectable
-            mButton.setActivated(false);
-            mButton.setEnabled(false);
-            mButton.setClickable(false);
+            showBluetoothEnabledButton();
         }
     }
 
     public void arduinoButtonOnClick(View v) {
-        Intent intent = new Intent(this, Hardware.class);
-        startActivity(intent);
+        if (_mBluetoothAdapter == null) {
+            // If there is no bluetooth, go to the DeepskyLog activity
+            Intent intent = new Intent(this, DeepskyLogLogin.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, Hardware.class);
+            startActivity(intent);
+        }
     }
 
     public void enableBluetoothOnClick(View v) {
-        // Check if the device has a bluetooth adapter
-        if (_mBluetoothAdapter == null) {
-            // Device does not support Bluetooth
-            Android.showDialog(this, R.string.noBluetooth, R.string.noBluetoothTitle, R.string.ok);
-        } else {
-            if (!_mBluetoothAdapter.isEnabled()) {
-                // Turn on bluetooth
-                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                int REQUEST_ENABLE_BT = 1;
-                startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        if (!_mBluetoothAdapter.isEnabled()) {
+            // Turn on bluetooth
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        }
+    }
 
-                // TODO: Wait for result!
-                // Change the button to show that bluetooth is enabled.
-                Button mButton=(Button)v.findViewById(R.id.enableBluetoothButton);
-                mButton.setText(R.string.bluetoothEnabled);
-
-                // Make the button unselectable
-                mButton.setActivated(false);
-                mButton.setEnabled(false);
-                mButton.setClickable(false);
+    /* What to do when a result is returned from an activity */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_ENABLE_BT) {
+            if (resultCode == RESULT_OK) {
+                // Disable the 'Enable bluetooth button
+                showBluetoothEnabledButton();
             }
         }
-    // TODO: If there is no bluetooth, go to the DeepskyLog activity
+        super.onActivityResult(requestCode, resultCode, data);
     }
+
+    /* Changes the 'Enable bluetooth' button to 'Bluetooth enabled' and disable the button
+     */
+    private void showBluetoothEnabledButton() {
+        // Change the button to show that bluetooth is enabled.
+        Button mButton = (Button) this.getWindow().getDecorView().findViewById(R.id.enableBluetoothButton);
+        mButton.setText(R.string.bluetoothEnabled);
+
+        // Make the button unselectable
+        mButton.setActivated(false);
+        mButton.setEnabled(false);
+        mButton.setClickable(false);
+    }
+
+    // TODO: Only show the Startup-wizard the first time you start up, or the first time you start up after an update
+    // TODO: Why is the image not shown on the Nexus 5?
 }

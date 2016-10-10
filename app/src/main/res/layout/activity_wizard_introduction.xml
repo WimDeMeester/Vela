@@ -37,7 +37,7 @@
                 android:text="@string/startWizard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/startWizard"
+                android:id="@+id/connectArduino"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:background="@android:drawable/btn_default"
