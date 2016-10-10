@@ -87,5 +87,4 @@ public class Bluetooth extends AppCompatActivity {
     }
 
     // TODO: Only show the Startup-wizard the first time you start up, or the first time you start up after an update
-    // TODO: Why is the image not shown on the Nexus 5?
 }
